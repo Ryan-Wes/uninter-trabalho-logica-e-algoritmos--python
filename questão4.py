@@ -1,6 +1,6 @@
 # Exigência de Código 1 de 8: Print com meu nome completo
 print("""
-      Bem-vindos ao sistema de gerenciamento de contatos do Ryan Lopes
+      Bem-vindos ao sistema de gerenciamento de contatos do Wesley Ryan Lopes da Rocha
       """)
 
 # Exigência de Código 2 de 8: Lista de contatos e id_global
