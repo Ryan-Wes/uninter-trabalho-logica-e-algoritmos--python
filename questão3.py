@@ -52,17 +52,16 @@ def transporte():
             print("Opção de transporte inválida. Tente novamente.")
 
 # Exigência de Código 5 de 7: Cálculo total a pagar
-# Chamando as funções e calculando o total
 tipo_madeira = escolha_tipo()
 quantidade, desconto = qtd_toras()
 custo_transporte = transporte()
 
-# Cálculo total com as regras do enunciado
+
 total = ((tipo_madeira * quantidade) * (1 - desconto)) + custo_transporte
 
 # Exigência de Código 6 de 7: Implementação de try/except já realizada na função qtd_toras
 
-# Exigência de Código 7 de 7: Comentários relevantes já inseridos
+# Exigência de Código 7 de 7: Comentários
 
 # Exigência de Saída de Console 1 de 4: Mensagem com meu nome
 print("Bem-vindos à Madeireira do Lenhador Ryan Lopes")

@@ -27,10 +27,9 @@ else:
     # Exigência de Código 4 de 6: Cálculo do valor mensal
     valor_mensal = valor_base * porcentagem
 
-    # Exigência de Código 5 de 6: Uso das estruturas if, elif, else já implementado
+    # Exigência de Código 5 de 6: Uso das estruturas if, elif, else
 
-    # Exigência de Código 6 de 6: Comentários relevantes
-    # O valor mensal do plano é calculado com base no valor base e na porcentagem correspondente à idade do cliente
+    # Exigência de Código 6 de 6: Comentários 
 
     # Exigência de Saída de Console 2 de 2: Apresentação do valor mensal se idade for >= 29 anos
     if idade >= 29:

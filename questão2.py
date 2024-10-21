@@ -1,81 +1,60 @@
-# Exigência de Código 1 de 7: Print com meu nome completo
-print("""   
-Bem-vindos à Madeireira do Lenhador Ryan Lopes!
+# Exigência de Código 1 de 8: Nome completo e menu inicial
+print("""      
+---------------------Bem-vindos à Pizzaria do Ryan!--------------------
+      """)
+print("""
+------------------------------Cardápio:--------------------------------
+-----------------------------------------------------------------------
+-| Tamanho P: Pizza Salgada (PS) R$ 30,00 | Pizza Doce (PD) R$ 34,00 |-
+-| Tamanho M: Pizza Salgada (PS) R$ 45,00 | Pizza Doce (PD) R$ 48,00 |-
+-| Tamanho G: Pizza Salgada (PS) R$ 60,00 | Pizza Doce (PD) R$ 66,00 |-
+-----------------------------------------------------------------------
 """)
 
-# Exigência de Código 2 de 7: Função para escolher o tipo de madeira
-def escolha_tipo():
-    while True:
-        tipo = input("""
----------------------------------------------------------------------
-Tora de Pinho (PIN) R$ 150,40 
-Tora de Peroba (PER) R$ 170,20 
-Tora de Mogno (MOG) R$ 190,90
-Tora de Ipê (IPE) R$ 210,10
-Tora de Imbuia (IMB) R$ 220,70
----------------------------------------------------------------------    
-                      """).upper()
-        if tipo == "PIN":
-            return 150.40  # Valor para Tora de Pinho
-        elif tipo == "PER":
-            return 170.20  # Valor para Tora de Peroba
-        elif tipo == "MOG":
-            return 190.90  # Valor para Tora de Mogno
-        elif tipo == "IPE":
-            return 210.10  # Valor para Tora de Ipê
-        elif tipo == "IMB":
-            return 220.70  # Valor para Tora de Imbuia
-        else:
-            print("Tipo de madeira inválido. Tente novamente.")  # Exigência de Saída 2 de 4
+# Exigência de Código 5 de 8: Acumulador para somar os valores dos pedidos
+valor_total = 0
 
-# Exigência de Código 3 de 7: Função para quantidade de toras
-def qtd_toras():
-    while True:
-        try:
-            qtd = float(input("Digite a quantidade de toras (em m³): "))
-            if qtd > 2000:
-                print("Quantidade máxima de toras aceita é 2000. Tente novamente.")  # Exigência de Saída 3 de 4
-                continue
-            elif qtd < 100:
-                desconto = 0
-            elif qtd < 500:
-                desconto = 0.04
-            elif qtd < 1000:
-                desconto = 0.09
-            elif qtd <= 2000:
-                desconto = 0.16
-            return qtd, desconto
-        except ValueError:
-            print("Valor inválido. Por favor, insira um número.")
+# Exigência de Código 7 de 8: Estrutura de loop while para repetir pedidos
+while True:
+    # Exigência de Código 2 de 8: Input do sabor e tratamento de erro
+    sabor = input("Escolha o sabor (PS - Pizza Salgada / PD - Pizza Doce): ").upper()
+    if sabor not in ['PS', 'PD']:
+        print("Sabor inválido. Tente novamente.")
+        continue  # Exigência de Código 7 de 8: continue para reiniciar o loop em caso de erro
 
-# Exigência de Código 4 de 7: Função para escolher o tipo de transporte
-def transporte():
-    while True:
-        tipo_transporte = input("Escolha o tipo de transporte (1: Rodoviário, 2: Ferroviário, 3: Hidroviário): ")
-        if tipo_transporte == "1":
-            return 1000  # Transporte rodoviário
-        elif tipo_transporte == "2":
-            return 2000  # Transporte ferroviário
-        elif tipo_transporte == "3":
-            return 2500  # Transporte hidroviário
-        else:
-            print("Opção de transporte inválida. Tente novamente.")
+    # Exigência de Código 3 de 8: Input do tamanho e tratamento de erro
+    tamanho = input("Escolha o tamanho (P / M / G): ").upper()
+    if tamanho not in ['P', 'M', 'G']:
+        print("Tamanho inválido. Tente novamente.")
+        continue  # Exigência de Código 7 de 8: continue para reiniciar o loop em caso de erro
 
-# Exigência de Código 5 de 7: Cálculo total a pagar
-# Chamando as funções e calculando o total
-tipo_madeira = escolha_tipo()
-quantidade, desconto = qtd_toras()
-custo_transporte = transporte()
+    # Exigência de Código 4 de 8: Estruturas if, elif, else aninhadas para combinar sabor e tamanho
+    if sabor == 'PS':  # Pizza Salgada
+        if tamanho == 'P':
+            valor_pizza = 30
+        elif tamanho == 'M':
+            valor_pizza = 45
+        elif tamanho == 'G':
+            valor_pizza = 60
+    elif sabor == 'PD':  # Pizza Doce
+        if tamanho == 'P':
+            valor_pizza = 34
+        elif tamanho == 'M':
+            valor_pizza = 48
+        elif tamanho == 'G':
+            valor_pizza = 66
 
-# Cálculo total com as regras do enunciado
-total = ((tipo_madeira * quantidade) * (1 - desconto)) + custo_transporte
+    # Adicionando o valor da pizza ao total
+    valor_total += valor_pizza
+    print(f"Você pediu uma pizza {sabor} de tamanho {tamanho}. Valor: R$ {valor_pizza:.2f}")
 
-# Exigência de Código 6 de 7: Implementação de try/except já realizada na função qtd_toras
+    # Exigência de Código 6 de 8: Pergunta se o cliente deseja fazer mais pedidos
+    mais_pedido = input("Deseja pedir mais alguma coisa? (S/N): ").upper()
+    if mais_pedido == 'N':
+        # Exigência de Código 7 de 8: Break para sair do loop
+        break
 
-# Exigência de Código 7 de 7: Comentários relevantes já inseridos
+# Exigência de Saída de Console 1 de 4: Mostrar o valor total ao encerrar os pedidos
+print(f"\nO valor total do pedido é: R$ {valor_total:.2f}")
 
-# Exigência de Saída de Console 1 de 4: Mensagem com meu nome
-print("Bem-vindos à Madeireira do Lenhador Ryan Lopes")
-
-# Exigência de Saída de Console 4 de 4: Mostrar total a pagar
-print(f"O total a pagar é: R$ {total:.2f}")
+# Exigência de Código 8 de 8: Comentários

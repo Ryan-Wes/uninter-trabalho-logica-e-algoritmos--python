@@ -5,11 +5,11 @@ print("""
 
 # Exigência de Código 2 de 8: Lista de contatos e id_global
 lista_contatos = []
-id_global = 123456  # Coloque aqui seu RU
+id_global = 4998629 
 
 # Exigência de Código 3 de 8: Função para cadastrar contato
 def cadastrar_contato(id):
-    print(f"Cadastro de Contato - ID: {id}")  # Exibe o ID do contato
+    print(f"Cadastro de Contato - ID: {id}") 
     nome = input("Informe o nome do contato: ")
     atividade = input("Informe a atividade do contato: ")
     telefone = input("Informe o telefone do contato: ")
@@ -21,7 +21,7 @@ def cadastrar_contato(id):
         'telefone': telefone
     }
     
-    lista_contatos.append(contato.copy())  # Armazena o dicionário na lista
+    lista_contatos.append(contato.copy()) 
     print(f"\nContato {nome} cadastrado com sucesso!\n")
 
 # Exigência de Código 4 de 8: Função para consultar contatos
@@ -92,7 +92,7 @@ Escolha uma opção:
 """)
     
     if opcao == "1":
-        id_global += 1  # Incrementa o id global
+        id_global += 1  
         cadastrar_contato(id_global)
     elif opcao == "2":
         consultar_contatos()
@@ -105,16 +105,16 @@ Escolha uma opção:
         print("Opção inválida.\n")
 
 # Exigência de Código 7 de 8: Lista de dicionários já implementada com lista_contatos
-# Exigência de Código 8 de 8: Comentários relevantes já inseridos
+# Exigência de Código 8 de 8: Comentários
 
 # Exigência de Saída de Console 1 de 6: Cadastro do meu contato
-cadastrar_contato(id_global)  # Nome: Ryan Lopes, Atividade: Estudante, Telefone: RU
+cadastrar_contato(id_global) 
 
 # Exigência de Saída de Console 2 de 6: Cadastro de mais 2 contatos
 id_global += 1
-cadastrar_contato(id_global)  # Nome: João Silva, Atividade: Marceneiro, Telefone: 987654321
+cadastrar_contato(id_global)  
 id_global += 1
-cadastrar_contato(id_global)  # Nome: Maria Souza, Atividade: Marceneira, Telefone: 123456789
+cadastrar_contato(id_global)
 
 # Exigência de Saída de Console 3 de 6: Consulta de todos os contatos
 print("Consulta de todos os contatos:")
@@ -122,7 +122,7 @@ consultar_contatos()
 
 # Exigência de Saída de Console 4 de 6: Consulta por código (id)
 print("Consulta por código (id):")
-id = 123456  # Troque pelo ID que deseja consultar
+id = 123456
 for contato in lista_contatos:
     if contato['id'] == id:
         print("\n-------------------- Contato Encontrado ---------------------")
@@ -136,6 +136,6 @@ for contato in lista_contatos:
         print(f"ID: {contato['id']} | Nome: {contato['nome']} | Telefone: {contato['telefone']}")
 
 # Exigência de Saída de Console 6 de 6: Remoção de um dos contatos
-remover_contato()  # Remova um contato pelo id
+remover_contato()
 print("Consulta após remoção:")
 consultar_contatos()
